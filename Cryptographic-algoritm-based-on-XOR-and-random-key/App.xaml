@@ -1,0 +1,9 @@
+﻿<Application x:Class="Cryptographic_algoritm_based_on_XOR_and_random_key.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Cryptographic_algoritm_based_on_XOR_and_random_key"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+         
+    </Application.Resources>
+</Application>
