@@ -20,9 +20,35 @@ namespace Cryptographic_algoritm_based_on_XOR_and_random_key
     /// </summary>
     public partial class MainWindow : Window
     {
+        List<Alphabet> _Alphabet = new List<Alphabet>();
+
         public MainWindow()
         {
             InitializeComponent();
+
+            _Alphabet.Add(new Alphabet("А", "1"));
+            _Alphabet.Add(new Alphabet("Б", "0"));
+        }
+
+        // Шифрование
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {           
+            string Message = textBox.Text;
+            string EditedMessage = "";
+
+            for (int i = 0; i < Message.Length; i++)
+            {
+                foreach (Alphabet A in _Alphabet)
+                {
+                    if (Message[i].ToString() == A.Symbol)
+                    {
+                        EditedMessage += A.Code.ToString();
+                    }
+                }
+            }
+
+            textBox1.Text = EditedMessage;
         }
     }
 }
