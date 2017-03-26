@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Cryptographic_algoritm_based_on_XOR_and_random_key"
         mc:Ignorable="d"
-        Title="MainWindow" Height="201.847" Width="525">
+        Title="MainWindow" Height="219.05" Width="547.364" FontSize="14">
     <Grid>
         <TabControl x:Name="tabControl">
             <TabItem Header="TabItem">
@@ -14,9 +14,7 @@
                         <ColumnDefinition Width="67*"/>
                         <ColumnDefinition Width="102*"/>
                     </Grid.ColumnDefinitions>
-                    <Button x:Name="button" Content="Зашифровать" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="121" Click="button_Click"/>
-                    <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="136,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
-                    <TextBox x:Name="textBox1" HorizontalAlignment="Left" Height="23" Margin="136,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsEnabled="False" Grid.ColumnSpan="2"/>
+                    <ListBox x:Name="Alphabet" DisplayMemberPath="Info" Margin="10" Grid.ColumnSpan="2"/>
                 </Grid>
             </TabItem>
             <TabItem Header="TabItem">
@@ -25,6 +23,21 @@
                         <ColumnDefinition Width="35*"/>
                         <ColumnDefinition Width="245*"/>
                         <ColumnDefinition Width="94*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="button" Content="Зашифровать" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="121" Click="button_Click" Grid.ColumnSpan="2"/>
+                    <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="89,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
+                    <TextBox x:Name="textBox1" HorizontalAlignment="Left" Height="23" Margin="89,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsEnabled="False" Grid.Column="1"/>
+                    <Button x:Name="button1" Content="Считать" HorizontalAlignment="Left" Margin="10,70,10,10" VerticalAlignment="Bottom" Width="60" Height="60" Click="button1_Click" Grid.ColumnSpan="2"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="TabItem">
+                <ListBox x:Name="Alphabet_Count" DisplayMemberPath="Info_Amount" Margin="10"/>
+            </TabItem>
+            <TabItem Header="TabItem">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="67*"/>
+                        <ColumnDefinition Width="102*"/>
                     </Grid.ColumnDefinitions>
                 </Grid>
             </TabItem>

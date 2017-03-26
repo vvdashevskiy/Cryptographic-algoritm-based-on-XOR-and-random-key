@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,14 +21,18 @@ namespace Cryptographic_algoritm_based_on_XOR_and_random_key
     /// </summary>
     public partial class MainWindow : Window
     {
-        List<Alphabet> _Alphabet = new List<Alphabet>();
+        List<Alphabet> _Alphabet = new List<Alphabet>();   
 
         public MainWindow()
         {
+            const string FileName = "russian_alphabet.txt";
+
             InitializeComponent();
 
-            _Alphabet.Add(new Alphabet("А", "1"));
-            _Alphabet.Add(new Alphabet("Б", "0"));
+            _Alphabet.Add(new Alphabet(Char.Parse("А"), "1"));
+            _Alphabet.Add(new Alphabet(Char.Parse("Б"), "0"));
+
+            Alphabet.ItemsSource = _Alphabet;
         }
 
         // Шифрование
@@ -41,14 +46,53 @@ namespace Cryptographic_algoritm_based_on_XOR_and_random_key
             {
                 foreach (Alphabet A in _Alphabet)
                 {
-                    if (Message[i].ToString() == A.Symbol)
+                    if (Message[i] == A.Symbol)
                     {
-                        EditedMessage += A.Code.ToString();
+                        EditedMessage += A.Code;
                     }
                 }
             }
 
             textBox1.Text = EditedMessage;
+        }
+
+        // Создание алфавита, запись и построение кода
+
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            Encoding code = Encoding.Default;
+
+            int Sum=0;
+
+            using (var sr = new StreamReader("russian_original.txt", code))
+            {
+                while (!sr.EndOfStream)
+                {
+                    var text = sr.ReadLine();
+                    Sum += text.Count();
+
+                    for (int i = 0; i < text.Length; i++)
+                    {
+                        int count = 0;
+
+                        foreach (Alphabet A in _Alphabet.ToArray())
+                        {
+                            if (text[i] == A.Symbol)
+                            {
+                                count += 1;
+                                A.Amount += 1;
+                            }
+                        }
+
+                        if (count == 0)
+                        {
+                            _Alphabet.Add(new Alphabet(text[i], 1));
+                        }
+                    }
+                }
+            }
+
+            Alphabet_Count.ItemsSource = _Alphabet;
         }
     }
 }

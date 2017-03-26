@@ -8,9 +8,9 @@ namespace Cryptographic_algoritm_based_on_XOR_and_random_key
 {
     public class Alphabet
     {
-        private string _symbol;
+        private char _symbol;
 
-        public string Symbol
+        public char Symbol
         {
             get { return _symbol; }
 
@@ -26,7 +26,38 @@ namespace Cryptographic_algoritm_based_on_XOR_and_random_key
             set { _code = value; }
         }
 
-        public Alphabet(string symbol, string code)
+        private int _amount = 0;
+
+        public int Amount
+        {
+            get { return _amount; }
+
+            set { _amount = value; }
+        }
+
+        public string Info
+        {
+            get
+            {
+                return $"{_symbol} - {_code}";
+            }
+        }
+
+        public string Info_Amount
+        {
+            get
+            {
+                return $"{_symbol} - {_amount}";
+            }
+        }
+
+        public Alphabet(char symbol, int amount)
+        {
+            _symbol = symbol;
+            _amount = amount;
+        }
+
+        public Alphabet(char symbol, string code)
         {
             _symbol = symbol;
             _code = code;
