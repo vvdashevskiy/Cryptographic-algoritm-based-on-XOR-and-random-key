@@ -8,5 +8,6 @@ namespace Cryptographic_algoritm_based_on_XOR_and_random_key
 {
     class Methods
     {
+
     }
 }

@@ -5,16 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Cryptographic_algoritm_based_on_XOR_and_random_key"
         mc:Ignorable="d"
-        Title="MainWindow" Height="219.05" Width="547.364" FontSize="14">
+        Title="MainWindow" Height="400" Width="600" FontSize="14">
     <Grid>
         <TabControl x:Name="tabControl">
             <TabItem Header="TabItem">
                 <Grid Background="#FFE5E5E5">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="67*"/>
-                        <ColumnDefinition Width="102*"/>
+                        <ColumnDefinition Width="265*"/>
+                        <ColumnDefinition Width="264*"/>
                     </Grid.ColumnDefinitions>
-                    <ListBox x:Name="Alphabet" DisplayMemberPath="Info" Margin="10" Grid.ColumnSpan="2"/>
+                    <ListView x:Name="listView" Margin="10" Grid.ColumnSpan="2">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Буква" DisplayMemberBinding="{Binding Symbol}"/>
+                                <GridViewColumn Header="Код" DisplayMemberBinding="{Binding Code}"/>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
                 </Grid>
             </TabItem>
             <TabItem Header="TabItem">
@@ -33,14 +40,7 @@
             <TabItem Header="TabItem">
                 <ListBox x:Name="Alphabet_Count" DisplayMemberPath="Info_Amount" Margin="10"/>
             </TabItem>
-            <TabItem Header="TabItem">
-                <Grid Background="#FFE5E5E5">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="67*"/>
-                        <ColumnDefinition Width="102*"/>
-                    </Grid.ColumnDefinitions>
-                </Grid>
-            </TabItem>
+            <TabItem Header="TabItem"/>
         </TabControl>
 
     </Grid>

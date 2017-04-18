@@ -63,4 +63,17 @@ namespace Cryptographic_algoritm_based_on_XOR_and_random_key
             _code = code;
         }
     }
+
+    public class CompInv<T> : IComparer<T>
+        where T : Alphabet
+    {
+        public int Compare(T x, T y)
+        {
+            if (x.Amount < y.Amount)
+                return -1;
+            if (x.Amount > y.Amount)
+                return 1;
+            else return 0;
+        }
+    }
 }

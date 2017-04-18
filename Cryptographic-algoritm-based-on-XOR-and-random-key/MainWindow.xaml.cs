@@ -32,7 +32,7 @@ namespace Cryptographic_algoritm_based_on_XOR_and_random_key
             _Alphabet.Add(new Alphabet(Char.Parse("А"), "1"));
             _Alphabet.Add(new Alphabet(Char.Parse("Б"), "0"));
 
-            Alphabet.ItemsSource = _Alphabet;
+            listView.ItemsSource = _Alphabet;
         }
 
         // Шифрование
@@ -60,6 +60,8 @@ namespace Cryptographic_algoritm_based_on_XOR_and_random_key
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
+            CompInv<Alphabet> ci = new CompInv<Alphabet>();
+
             Encoding code = Encoding.Default;
 
             int Sum=0;
@@ -93,6 +95,29 @@ namespace Cryptographic_algoritm_based_on_XOR_and_random_key
             }
 
             Alphabet_Count.ItemsSource = _Alphabet;
+
+            _Alphabet.Sort(ci);
+
+            Alphabet_Count.ItemsSource = _Alphabet;
         }
     }
 }
+
+/*
+        public void correctColumnWidths()
+        {
+            double remainingSpace = listView.ActualWidth;
+
+            if (remainingSpace > 0)
+            {
+                for (int i = 0; i < (listView.View as GridView).Columns.Count; i++)
+                    if (i != 2)
+                        remainingSpace -= (listView.View as GridView).Columns[i].ActualWidth;
+
+                //Leave 15 px free for scrollbar
+                remainingSpace -= 15;
+
+                (listView.View as GridView).Columns[2].Width = remainingSpace;
+            }
+        }
+ * */
