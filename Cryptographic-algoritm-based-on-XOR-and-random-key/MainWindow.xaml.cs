@@ -21,13 +21,17 @@ namespace Cryptographic_algoritm_based_on_XOR_and_random_key
     /// </summary>
     public partial class MainWindow : Window
     {
-        List<Alphabet> _Alphabet = new List<Alphabet>();   
+        Methods M = new Methods();     
+        
+        public List<Alphabet> _Alphabet = new List<Alphabet>();   
 
         public MainWindow()
         {
-            const string FileName = "russian_alphabet.txt";
+            //const string FileName = "russian_alphabet.txt";
 
             InitializeComponent();
+
+            ((App)Application.Current).S = M.DeSerialise(); // Загрузка файла настроек
 
             _Alphabet.Add(new Alphabet(Char.Parse("А"), "1"));
             _Alphabet.Add(new Alphabet(Char.Parse("Б"), "0"));
@@ -42,14 +46,26 @@ namespace Cryptographic_algoritm_based_on_XOR_and_random_key
             string Message = textBox.Text;
             string EditedMessage = "";
 
-            for (int i = 0; i < Message.Length; i++)
+            if (((App)Application.Current).S.ASCII_Check() == 0)
             {
-                foreach (Alphabet A in _Alphabet)
+                for (int i = 0; i < Message.Length; i++)
                 {
-                    if (Message[i] == A.Symbol)
+                    foreach (Alphabet A in _Alphabet)
                     {
-                        EditedMessage += A.Code;
+                        if (Message[i] == A.Symbol)
+                        {
+                            EditedMessage += A.Code;
+                        }
                     }
+                }
+            }
+
+            else
+
+            {
+                for (int i = 0; i < Message.Length; i++)
+                {
+                    EditedMessage += Convert.ToString((byte)Message[i], 2).PadLeft(8, '0');
                 }
             }
 
@@ -100,24 +116,14 @@ namespace Cryptographic_algoritm_based_on_XOR_and_random_key
 
             Alphabet_Count.ItemsSource = _Alphabet;
         }
+
+        private void MenuSettings_Click(object sender, RoutedEventArgs e)
+        {
+            SettingsClass Set = new SettingsClass();
+
+            Set.ShowDialog();
+
+            M.Serialise(((App)Application.Current).S);
+        }
     }
 }
-
-/*
-        public void correctColumnWidths()
-        {
-            double remainingSpace = listView.ActualWidth;
-
-            if (remainingSpace > 0)
-            {
-                for (int i = 0; i < (listView.View as GridView).Columns.Count; i++)
-                    if (i != 2)
-                        remainingSpace -= (listView.View as GridView).Columns[i].ActualWidth;
-
-                //Leave 15 px free for scrollbar
-                remainingSpace -= 15;
-
-                (listView.View as GridView).Columns[2].Width = remainingSpace;
-            }
-        }
- * */

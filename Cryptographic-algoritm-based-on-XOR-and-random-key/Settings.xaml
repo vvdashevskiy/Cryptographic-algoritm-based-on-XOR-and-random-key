@@ -1,0 +1,16 @@
+﻿<Window x:Class="Cryptographic_algoritm_based_on_XOR_and_random_key.SettingsClass"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Cryptographic_algoritm_based_on_XOR_and_random_key"
+        mc:Ignorable="d"
+        Title="Settings" Height="300" Width="300">
+    <Grid>
+        <Button x:Name="ASCII_Allowed" Content="ASCII" Margin="30,30,0,0" HorizontalAlignment="Left" Width="75" Height="22" VerticalAlignment="Top" Click="ASCII_Load_Click"/>
+        <Button x:Name="ASCII_Forbidden" Content="Button" Margin="120,30,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="75" Click="ASCII_Forbidden_Click"/>
+        <Button x:Name="Exit" Content="Close" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="75" Click="Exit_Click"/>
+        <Label x:Name="ASCII_Status" Content="" HorizontalAlignment="Left" Margin="30,57,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>

@@ -13,5 +13,6 @@ namespace Cryptographic_algoritm_based_on_XOR_and_random_key
     /// </summary>
     public partial class App : Application
     {
+        public Settings S = new Settings();
     }
 }

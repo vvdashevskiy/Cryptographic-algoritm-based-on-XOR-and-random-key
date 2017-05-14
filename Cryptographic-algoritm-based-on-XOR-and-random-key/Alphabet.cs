@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Cryptographic_algoritm_based_on_XOR_and_random_key
 {
-    public class Alphabet
+    public partial class Alphabet
     {
         private char _symbol;
 
