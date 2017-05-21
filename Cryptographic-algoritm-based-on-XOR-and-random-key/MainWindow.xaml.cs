@@ -21,26 +21,26 @@ namespace Cryptographic_algoritm_based_on_XOR_and_random_key
     /// </summary>
     public partial class MainWindow : Window
     {
-        Methods M = new Methods();     
-        
-        public List<Alphabet> _Alphabet = new List<Alphabet>();   
+        Methods M = new Methods();
+
+        //public List<Alphabet> _Alphabet = new List<Alphabet>();   
 
         public MainWindow()
         {
-            //const string FileName = "russian_alphabet.txt";
-
             InitializeComponent();
 
             ((App)Application.Current).S = M.DeSerialise(); // Загрузка файла настроек
 
-            _Alphabet.Add(new Alphabet(Char.Parse("А"), "1"));
-            _Alphabet.Add(new Alphabet(Char.Parse("Б"), "0"));
+            //_Alphabet.Add(new Alphabet(Char.Parse("А"), "1"));
+            //_Alphabet.Add(new Alphabet(Char.Parse("Б"), "0"));
+            //listView.ItemsSource = _Alphabet;
 
-            listView.ItemsSource = _Alphabet;
+            frameMain.Navigate(Pages.MainPage);
         }
 
         // Шифрование
 
+        /*
         private void button_Click(object sender, RoutedEventArgs e)
         {           
             string Message = textBox.Text;
@@ -115,15 +115,11 @@ namespace Cryptographic_algoritm_based_on_XOR_and_random_key
             _Alphabet.Sort(ci);
 
             Alphabet_Count.ItemsSource = _Alphabet;
-        }
+        }*/
 
         private void MenuSettings_Click(object sender, RoutedEventArgs e)
         {
-            SettingsClass Set = new SettingsClass();
-
-            Set.ShowDialog();
-
-            M.Serialise(((App)Application.Current).S);
+            frameMain.Navigate(Pages.SettingsPage);
         }
     }
 }

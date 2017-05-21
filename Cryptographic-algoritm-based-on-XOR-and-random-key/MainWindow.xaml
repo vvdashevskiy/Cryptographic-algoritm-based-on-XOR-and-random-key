@@ -7,44 +7,11 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="400" Width="600" FontSize="14">
     <Grid>
-        <TabControl x:Name="tabControl" Margin="0,20,0,0">
-            <TabItem Header="TabItem">
-                <Grid Background="#FFE5E5E5">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="265*"/>
-                        <ColumnDefinition Width="264*"/>
-                    </Grid.ColumnDefinitions>
-                    <ListView x:Name="listView" Margin="10" Grid.ColumnSpan="2">
-                        <ListView.View>
-                            <GridView>
-                                <GridViewColumn Header="Буква" DisplayMemberBinding="{Binding Symbol}"/>
-                                <GridViewColumn Header="Код" DisplayMemberBinding="{Binding Code}"/>
-                            </GridView>
-                        </ListView.View>
-                    </ListView>
-                </Grid>
-            </TabItem>
-            <TabItem Header="TabItem">
-                <Grid Background="#FFE5E5E5">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="35*"/>
-                        <ColumnDefinition Width="245*"/>
-                        <ColumnDefinition Width="94*"/>
-                    </Grid.ColumnDefinitions>
-                    <Button x:Name="button" Content="Зашифровать" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="121" Click="button_Click" Grid.ColumnSpan="2"/>
-                    <TextBox x:Name="textBox" Height="23" Margin="89,10,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Column="1" Grid.ColumnSpan="2"/>
-                    <TextBox x:Name="textBox1" Height="23" Margin="89,38,10,0" TextWrapping="Wrap" VerticalAlignment="Top" IsEnabled="False" Grid.Column="1" Grid.ColumnSpan="2"/>
-                    <Button x:Name="button1" Content="Считать" HorizontalAlignment="Left" Margin="10,70,10,10" VerticalAlignment="Bottom" Width="60" Height="60" Click="button1_Click" Grid.ColumnSpan="2"/>
-                </Grid>
-            </TabItem>
-            <TabItem Header="TabItem">
-                <ListBox x:Name="Alphabet_Count" DisplayMemberPath="Info_Amount" Margin="10"/>
-            </TabItem>
-            <TabItem Header="TabItem"/>
-        </TabControl>
+        <Frame Name="frameMain" NavigationUIVisibility="Hidden"></Frame>
+        
         <Menu x:Name="menu" Height="20" VerticalAlignment="Top">
-            <MenuItem Header="File">
-                <MenuItem Header="Settings" HorizontalAlignment="Left" Width="145" Click="MenuSettings_Click"/>
+            <MenuItem Header="Файл">
+                <MenuItem Header="Настройки" HorizontalAlignment="Left" Width="150" Click="MenuSettings_Click"/>
             </MenuItem>
         </Menu>
 

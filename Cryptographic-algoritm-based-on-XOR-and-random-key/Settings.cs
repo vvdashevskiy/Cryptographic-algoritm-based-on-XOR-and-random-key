@@ -12,21 +12,27 @@ namespace Cryptographic_algoritm_based_on_XOR_and_random_key
 
     public class Settings
     {
-        public int Use_ASCII;
+        int a, b, n;
 
-        public void ASCII_Allowed()
+        public int A
         {
-            Use_ASCII = 1;
+            get { return a; }
+
+            set { a = value; }
         }
 
-        public void ASCII_Forbidden()
+        public int B
         {
-            Use_ASCII = 0;
+            get { return b; }
+
+            set { b = value; }
         }
 
-        public int ASCII_Check()
+        public int N
         {
-            return Use_ASCII;
+            get { return n; }
+
+            set { n = value; }
         }
     }
 }
