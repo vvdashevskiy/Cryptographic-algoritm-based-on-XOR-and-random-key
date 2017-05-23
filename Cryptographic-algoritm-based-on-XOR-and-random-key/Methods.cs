@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Xml.Serialization;
+using System.Data.SQLite;
 
 namespace Cryptographic_algoritm_based_on_XOR_and_random_key
 {

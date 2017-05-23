@@ -23,7 +23,7 @@ namespace Cryptographic_algoritm_based_on_XOR_and_random_key
     public partial class MainPage : Page
     {
         Methods M = new Methods();
-        string tmp, code = "", temp, text = "", last;
+        string tmp, DancingMen = "", temp, text = "", last;
 
         Encoding Encode = Encoding.Default;
 
@@ -49,17 +49,22 @@ namespace Cryptographic_algoritm_based_on_XOR_and_random_key
                     {
                         tmp = sr.ReadLine();
 
-                        for (int i = 0; i < tmp.Length; i++)
-                        {
-                            code += Convert.ToString((byte)tmp[i], 2).PadLeft(8, '0');
-                        }
-                        count += code.Count();
+                        byte[] code = Encoding.Default.GetBytes(tmp);
 
-                        ((App)Application.Current).Text.Add(code);
+                        for(int i=0; i < code.Length; i++)
+                        {
+                            DancingMen += Convert.ToString(code[i], 2).PadLeft(8, '0');
+                        }
+
+                        count += DancingMen.Count();
+
+                        ((App)Application.Current).Text.Add(DancingMen);
+
+                        DancingMen = "";
                     }
                 }
 
-                code = M.Calculate(count);
+                DancingMen = M.Calculate(count);
 
                 for (int i = 0; i <= ((App)Application.Current).Text.Count; i++)
                 {
@@ -70,7 +75,7 @@ namespace Cryptographic_algoritm_based_on_XOR_and_random_key
                     {
                         for (int j = 0; j < temp.Count(); j++)
                         {
-                            tmp += ((Convert.ToInt32(temp[j]) + Convert.ToInt32(code[j])) % 2).ToString();
+                            tmp += ((Convert.ToInt32(temp[j]) ^ Convert.ToInt32(DancingMen[j]))).ToString();
                         }
 
                         sw.WriteLine(tmp);
@@ -85,7 +90,8 @@ namespace Cryptographic_algoritm_based_on_XOR_and_random_key
             try
             {
                 string path = M.OpenFile();
-                int count = 0, Dec;
+                int count = 0;
+
                 M.Clear();
 
                 var File = new FileStream(path.Replace(@".txt", "_decrypted.txt"), FileMode.Create);
@@ -102,7 +108,7 @@ namespace Cryptographic_algoritm_based_on_XOR_and_random_key
                     }
                 }
 
-                code = M.Calculate(count);
+                DancingMen = M.Calculate(count);
 
                 for (int i = 0; i <= ((App)Application.Current).Text.Count; i++)
                 {
@@ -113,21 +119,23 @@ namespace Cryptographic_algoritm_based_on_XOR_and_random_key
                     {
                         for (int j = 0; j < temp.Count(); j++)
                         {
-                            tmp += ((Convert.ToInt32(temp[j]) + Convert.ToInt32(code[j])) % 2).ToString();
+                            tmp += ((Convert.ToInt32(temp[j]) ^ Convert.ToInt32(DancingMen[j]))).ToString();
                         }
 
                         for (int z = 0; z < tmp.Count(); z = z + 8)
                         {
+                            byte[] B = new byte[1];
+
                             for (int x = 0; x < 8; x++)
                             {
                                 last += tmp[x+z];
                             }
 
-                            Dec = Convert.ToInt32(M.BinToDec(last));
+                            B[0] = Convert.ToByte(M.BinToDec(last));
 
                             last = "";
 
-                            text += Convert.ToChar(Dec);
+                            text += Encoding.GetEncoding(1251).GetString(B, 0, B.Count());
                         }
 
                         sw.WriteLine(text);
