@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NLog;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -17,5 +18,6 @@ namespace Cryptographic_algoritm_based_on_XOR_and_random_key
         public List<string> EncryptedText = new List<string>();
 
         public Settings S = new Settings();
+        public Logger log = LogManager.GetCurrentClassLogger();
     }
 }

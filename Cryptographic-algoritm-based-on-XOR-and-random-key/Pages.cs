@@ -11,6 +11,7 @@ namespace Cryptographic_algoritm_based_on_XOR_and_random_key
         private static LoginPage _loginPage = new LoginPage();
         private static MainPage _mainPage = new MainPage();
         private static SettingsPage _settingsPage = new SettingsPage();
+        private static RegisterPage _registerPage = new RegisterPage();
 
         public static LoginPage LoginPage
         {
@@ -25,6 +26,11 @@ namespace Cryptographic_algoritm_based_on_XOR_and_random_key
         public static SettingsPage SettingsPage
         {
             get { return _settingsPage; }
+        }
+
+        public static RegisterPage RegisterPage
+        {
+            get { return _registerPage; }
         }
     }
 }

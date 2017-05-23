@@ -36,6 +36,8 @@ namespace Cryptographic_algoritm_based_on_XOR_and_random_key
         {
             try
             {
+                ((App)Application.Current).log.Trace("Начало кодировки файла");
+
                 string path = M.OpenFile();
                 int count = 0;
 
@@ -66,7 +68,9 @@ namespace Cryptographic_algoritm_based_on_XOR_and_random_key
 
                 DancingMen = M.Calculate(count);
 
-                for (int i = 0; i <= ((App)Application.Current).Text.Count; i++)
+                ((App)Application.Current).log.Trace("Рассчёт кода успешно завершён");
+
+                for (int i = 0; i < ((App)Application.Current).Text.Count; i++)
                 {
                     tmp = "";
                     temp = (((App)Application.Current).Text[i]);
@@ -81,14 +85,18 @@ namespace Cryptographic_algoritm_based_on_XOR_and_random_key
                         sw.WriteLine(tmp);
                     }
                 }
+
+                ((App)Application.Current).log.Trace("Файл успешно закодирован");
             }
-            catch { /*MessageBox.Show("Необходимо выбрать файл с текстом");*/ }
+            catch { }
         }
 
         private void Unlocked_Click(object sender, RoutedEventArgs e)
         {
             try
             {
+                ((App)Application.Current).log.Trace("Начало декодирования файла");
+
                 string path = M.OpenFile();
                 int count = 0;
 
@@ -110,7 +118,9 @@ namespace Cryptographic_algoritm_based_on_XOR_and_random_key
 
                 DancingMen = M.Calculate(count);
 
-                for (int i = 0; i <= ((App)Application.Current).Text.Count; i++)
+                ((App)Application.Current).log.Trace("Рассчёт кода успешно завершён");
+
+                for (int i = 0; i < ((App)Application.Current).Text.Count; i++)
                 {
                     tmp = "";
                     temp = (((App)Application.Current).Text[i]);
@@ -141,6 +151,8 @@ namespace Cryptographic_algoritm_based_on_XOR_and_random_key
                         sw.WriteLine(text);
                     }
                 }
+
+                ((App)Application.Current).log.Trace("Файл успешно декодирован");
             }
             catch { }
         }

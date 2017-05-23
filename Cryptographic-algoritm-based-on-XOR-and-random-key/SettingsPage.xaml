@@ -5,15 +5,16 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Cryptographic_algoritm_based_on_XOR_and_random_key"
       mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="300"
+      d:DesignHeight="400" d:DesignWidth="500"
       Title="SettingsPage">
 
     <Grid>
         <Button x:Name="Exit" Content="Сохранить и выйти" Margin="0,0,10,10" Height="22" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="140" Click="Exit_Click"/>
-        <TextBox x:Name="b" Height="23" Margin="163,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left" Width="50" Panel.ZIndex="5"/>
-        <TextBox x:Name="a" Height="23" Margin="43,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left" Width="50" Panel.ZIndex="5"/>
-        <TextBox x:Name="Y1" Height="23" Margin="10,95,0,0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left" Width="50" Panel.ZIndex="5"/>
-        <Label x:Name="Formula" Content="Y = ((                  * Y(n-1)) +                  ) mod 2" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top" Panel.ZIndex="1"/>
-
+        <TextBox x:Name="b" Height="24" Margin="180,27,0,0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left" Width="40" Panel.ZIndex="5"/>
+        <TextBox x:Name="a" Height="24" Margin="70,27,0,0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left" Width="40" Panel.ZIndex="5"/>
+        <TextBox x:Name="n" Height="24" Margin="124,58,0,0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left" Width="40" Panel.ZIndex="5"/>
+        <Label x:Name="Formula" Content="Y(n) = ((                  * Y(n-1)) +                  ) mod 2" Margin="10,25,0,0" VerticalAlignment="Top" 
+               Panel.ZIndex="1" HorizontalAlignment="Left" Width="285"/>
+        <Label x:Name="Start" Content="Начальное число:" HorizontalAlignment="Left" Margin="10,56,0,0" VerticalAlignment="Top" Panel.ZIndex="1"/>
     </Grid>
 </Page>
