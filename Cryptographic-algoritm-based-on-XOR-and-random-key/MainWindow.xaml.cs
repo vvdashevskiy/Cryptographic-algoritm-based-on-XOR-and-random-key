@@ -1,6 +1,7 @@
 ﻿using NLog;
 using System;
 using System.Collections.Generic;
+using System.Data.SQLite;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -14,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.ComponentModel;
 
 namespace Cryptographic_algoritm_based_on_XOR_and_random_key
 {
@@ -22,25 +24,46 @@ namespace Cryptographic_algoritm_based_on_XOR_and_random_key
     /// </summary>
     public partial class MainWindow : Window
     {
-        Methods M = new Methods();  
+        Methods M = new Methods();
 
         public MainWindow()
         {
             InitializeComponent();
 
-            try
+            Directory.CreateDirectory("Settings");
+
+            using (SQLiteConnection Base = new SQLiteConnection("Data source=Users.db"))
             {
-                ((App)Application.Current).S = M.DeSerialise(); // Загрузка файла настроек
+                try
+                {
+                    Base.Open();
 
-                ((App)Application.Current).log.Trace("Загружены настройки");
-            } catch { ((App)Application.Current).log.Trace("Файл настроек не найден"); }
+                    M.CreateTables(Base);
+                }
+                catch { }
+            }
 
-            frameMain.Navigate(Pages.MainPage);
+            frameMain.Navigate(Pages.LoginPage);
         }
 
         private void MenuSettings_Click(object sender, RoutedEventArgs e)
         {
-            frameMain.Navigate(Pages.SettingsPage);
+            if (((App)Application.Current).CurrentUser == null)
+                MessageBox.Show("Необходимо войти в систему");
+            else
+                frameMain.Navigate(Pages.SettingsPage);
         }
+
+        /*protected override void OnClosing(CancelEventArgs e)
+        {
+            Settings.Default.Save();
+            base.OnClosing(e);
+        }*/
+
+        /*
+        Height="{Binding Source={x:Static p:Settings.Default}, Path=Height, Mode=TwoWay}"
+        Width="{Binding Source={x:Static p:Settings.Default}, Path=Width, Mode=TwoWay}"
+        Left="{Binding Source={x:Static p:Settings.Default}, Path=Left, Mode=TwoWay}"
+        Top="{Binding Source={x:Static p:Settings.Default}, Path=Top, Mode=TwoWay}"*/
     }
 }

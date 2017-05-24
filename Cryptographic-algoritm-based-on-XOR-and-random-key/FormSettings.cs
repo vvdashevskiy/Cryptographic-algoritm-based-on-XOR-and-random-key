@@ -10,7 +10,7 @@ namespace Cryptographic_algoritm_based_on_XOR_and_random_key
 {
     [Serializable]
 
-    public class Settings
+    public class FormSettings
     {
         int a, b, n;
 

@@ -21,7 +21,7 @@ namespace Cryptographic_algoritm_based_on_XOR_and_random_key
     public partial class SettingsPage : Page
     {
         Methods M = new Methods();
-        Settings S = new Settings();
+        FormSettings S = new FormSettings();
 
         public SettingsPage()
         {
@@ -39,21 +39,17 @@ namespace Cryptographic_algoritm_based_on_XOR_and_random_key
         {
             try
             {
-                if (int.Parse(a.Text) > 0 & int.Parse(b.Text) > 0 & int.Parse(n.Text) > 0)
-                {
-                    ((App)Application.Current).S.A = Convert.ToInt32(a.Text);
-                    ((App)Application.Current).S.B = Convert.ToInt32(b.Text);
-                    ((App)Application.Current).S.N = Convert.ToInt32(n.Text);
+                ((App)Application.Current).S.A = Convert.ToInt32(a.Text);
+                ((App)Application.Current).S.B = Convert.ToInt32(b.Text);
+                ((App)Application.Current).S.N = Convert.ToInt32(n.Text);
 
-                    M.Serialise(((App)Application.Current).S);
+                M.Serialise(((App)Application.Current).S, ((App)Application.Current).CurrentUser);
 
-                    ((App)Application.Current).log.Trace("Файл настроек обновлён");
+                ((App)Application.Current).log.Trace("Файл настроек обновлён");
 
-                    NavigationService.Navigate(Pages.MainPage);
-                }
-                else
-                    MessageBox.Show("Пожалуйста, введите положительные цисла");
-            } catch { MessageBox.Show("Пожалуйста, введите целые положительные цисла"); }
+                NavigationService.Navigate(Pages.MainPage);
+            }
+            catch { MessageBox.Show("Пожалуйста, вводите натуральные цисла"); }
         }
-    } 
+    }
 }

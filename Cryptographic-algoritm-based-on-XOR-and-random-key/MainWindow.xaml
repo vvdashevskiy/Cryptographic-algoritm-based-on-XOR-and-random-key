@@ -4,12 +4,14 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Cryptographic_algoritm_based_on_XOR_and_random_key"
+        xmlns:p="clr-namespace:Cryptographic_algoritm_based_on_XOR_and_random_key.Properties"
         mc:Ignorable="d"
-        Title="MainWindow" Height="400" Width="600" FontSize="14">
+        Title="Шифратор" FontSize="14" Height="400" Width="600">
+        
     <Grid>
         <Frame Name="frameMain" NavigationUIVisibility="Hidden"></Frame>
         
-        <Menu x:Name="menu" Height="20" VerticalAlignment="Top">
+        <Menu x:Name="Menu" Height="20" VerticalAlignment="Top">
             <MenuItem Header="Файл">
                 <MenuItem Header="Настройки" HorizontalAlignment="Left" Width="150" Click="MenuSettings_Click"/>
             </MenuItem>

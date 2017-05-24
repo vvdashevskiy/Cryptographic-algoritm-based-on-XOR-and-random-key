@@ -5,10 +5,15 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Cryptographic_algoritm_based_on_XOR_and_random_key"
       mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="500"
+      d:DesignHeight="400" d:DesignWidth="600"
       Title="RegisterPage">
 
     <Grid>
-        
+        <PasswordBox x:Name="PasswordBox" Margin="150,140,150,0" VerticalAlignment="Top"/>
+        <PasswordBox x:Name="PasswordBox_Double" Margin="150,180,150,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="LoginBox" Margin="150,80,150,0" TextWrapping="Wrap" Height="23" VerticalAlignment="Top"/>
+        <Button x:Name="RegisterButton" Content="Зарегистрировать" Margin="150,225,150,0" Click="RegisterButton_Click" Height="75" VerticalAlignment="Top"/>
+        <Label x:Name="LoginLabel" Content="Введите ваш логин:" Margin="150,49,150,0" VerticalAlignment="Top"/>
+        <Label x:Name="PasswordLabel" Content="Дважды введите ваш пароль:" Margin="150,109,150,0" VerticalAlignment="Top"/>
     </Grid>
 </Page>

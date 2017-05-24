@@ -34,127 +34,135 @@ namespace Cryptographic_algoritm_based_on_XOR_and_random_key
 
         private void Locked_Click(object sender, RoutedEventArgs e)
         {
-            try
+            if (((App)Application.Current).S.A != 0 | ((App)Application.Current).S.A != 0 | ((App)Application.Current).S.A != 0)
             {
-                ((App)Application.Current).log.Trace("Начало кодировки файла");
-
-                string path = M.OpenFile();
-                int count = 0;
-
-                M.Clear();
-
-                var File = new FileStream(path.Replace(@".txt", "_encrypted.txt"), FileMode.Create);
-
-                using (var sr = new StreamReader(path, Encode))
+                try
                 {
-                    while (!sr.EndOfStream)
+                    ((App)Application.Current).log.Trace("Начало кодировки файла");
+
+                    string path = M.OpenFile();
+                    int count = 0;
+
+                    M.Clear();
+
+                    var File = new FileStream(path.Replace(@".txt", "_encrypted.txt"), FileMode.Create);
+
+                    using (var sr = new StreamReader(path, Encode))
                     {
-                        tmp = sr.ReadLine();
-
-                        byte[] code = Encoding.Default.GetBytes(tmp);
-
-                        for(int i=0; i < code.Length; i++)
+                        while (!sr.EndOfStream)
                         {
-                            DancingMen += Convert.ToString(code[i], 2).PadLeft(8, '0');
+                            tmp = sr.ReadLine();
+
+                            byte[] code = Encoding.Default.GetBytes(tmp);
+
+                            for (int i = 0; i < code.Length; i++)
+                            {
+                                DancingMen += Convert.ToString(code[i], 2).PadLeft(8, '0');
+                            }
+
+                            count += DancingMen.Count();
+
+                            ((App)Application.Current).Text.Add(DancingMen);
+
+                            DancingMen = "";
                         }
-
-                        count += DancingMen.Count();
-
-                        ((App)Application.Current).Text.Add(DancingMen);
-
-                        DancingMen = "";
                     }
-                }
 
-                DancingMen = M.Calculate(count);
+                    DancingMen = M.Calculate(count);
 
-                ((App)Application.Current).log.Trace("Рассчёт кода успешно завершён");
+                    ((App)Application.Current).log.Trace("Рассчёт кода успешно завершён");
 
-                for (int i = 0; i < ((App)Application.Current).Text.Count; i++)
-                {
-                    tmp = "";
-                    temp = (((App)Application.Current).Text[i]);
-
-                    using (var sw = new StreamWriter(File, Encode))
+                    for (int i = 0; i < ((App)Application.Current).Text.Count; i++)
                     {
-                        for (int j = 0; j < temp.Count(); j++)
+                        tmp = "";
+                        temp = (((App)Application.Current).Text[i]);
+
+                        using (var sw = new StreamWriter(File, Encode))
                         {
-                            tmp += ((Convert.ToInt32(temp[j]) ^ Convert.ToInt32(DancingMen[j]))).ToString();
+                            for (int j = 0; j < temp.Count(); j++)
+                            {
+                                tmp += ((Convert.ToInt32(temp[j]) ^ Convert.ToInt32(DancingMen[j]))).ToString();
+                            }
+
+                            sw.WriteLine(tmp);
                         }
-
-                        sw.WriteLine(tmp);
                     }
-                }
 
-                ((App)Application.Current).log.Trace("Файл успешно закодирован");
+                    ((App)Application.Current).log.Trace("Файл успешно закодирован");
+                }
+                catch { }
             }
-            catch { }
+            else MessageBox.Show("Необходимо указать параметры для генерации псевдослучайной последовательности в настройках программы");
         }
 
         private void Unlocked_Click(object sender, RoutedEventArgs e)
         {
-            try
+            if (((App)Application.Current).S.A != 0 | ((App)Application.Current).S.A != 0 | ((App)Application.Current).S.A != 0)
             {
-                ((App)Application.Current).log.Trace("Начало декодирования файла");
-
-                string path = M.OpenFile();
-                int count = 0;
-
-                M.Clear();
-
-                var File = new FileStream(path.Replace(@".txt", "_decrypted.txt"), FileMode.Create);
-
-                using (var sr = new StreamReader(path, Encode))
+                try
                 {
-                    while (!sr.EndOfStream)
+                    ((App)Application.Current).log.Trace("Начало декодирования файла");
+
+                    string path = M.OpenFile();
+                    int count = 0;
+
+                    M.Clear();
+
+                    var File = new FileStream(path.Replace(@".txt", "_decrypted.txt"), FileMode.Create);
+
+                    using (var sr = new StreamReader(path, Encode))
                     {
-                        tmp = sr.ReadLine();
-
-                        count += tmp.Count();
-
-                        ((App)Application.Current).Text.Add(tmp);
-                    }
-                }
-
-                DancingMen = M.Calculate(count);
-
-                ((App)Application.Current).log.Trace("Рассчёт кода успешно завершён");
-
-                for (int i = 0; i < ((App)Application.Current).Text.Count; i++)
-                {
-                    tmp = "";
-                    temp = (((App)Application.Current).Text[i]);
-
-                    using (var sw = new StreamWriter(File, Encode))
-                    {
-                        for (int j = 0; j < temp.Count(); j++)
+                        while (!sr.EndOfStream)
                         {
-                            tmp += ((Convert.ToInt32(temp[j]) ^ Convert.ToInt32(DancingMen[j]))).ToString();
+                            tmp = sr.ReadLine();
+
+                            count += tmp.Count();
+
+                            ((App)Application.Current).Text.Add(tmp);
                         }
+                    }
 
-                        for (int z = 0; z < tmp.Count(); z = z + 8)
+                    DancingMen = M.Calculate(count);
+
+                    ((App)Application.Current).log.Trace("Рассчёт кода успешно завершён");
+
+                    for (int i = 0; i < ((App)Application.Current).Text.Count; i++)
+                    {
+                        tmp = "";
+                        temp = (((App)Application.Current).Text[i]);
+
+                        using (var sw = new StreamWriter(File, Encode))
                         {
-                            byte[] B = new byte[1];
-
-                            for (int x = 0; x < 8; x++)
+                            for (int j = 0; j < temp.Count(); j++)
                             {
-                                last += tmp[x+z];
+                                tmp += ((Convert.ToInt32(temp[j]) ^ Convert.ToInt32(DancingMen[j]))).ToString();
                             }
 
-                            B[0] = Convert.ToByte(M.BinToDec(last));
+                            for (int z = 0; z < tmp.Count(); z = z + 8)
+                            {
+                                byte[] B = new byte[1];
 
-                            last = "";
+                                for (int x = 0; x < 8; x++)
+                                {
+                                    last += tmp[x + z];
+                                }
 
-                            text += Encoding.GetEncoding(1251).GetString(B, 0, B.Count());
+                                B[0] = Convert.ToByte(M.BinToDec(last));
+
+                                last = "";
+
+                                text += Encoding.GetEncoding(1251).GetString(B, 0, B.Count());
+                            }
+
+                            sw.WriteLine(text);
                         }
-
-                        sw.WriteLine(text);
                     }
-                }
 
                 ((App)Application.Current).log.Trace("Файл успешно декодирован");
+                }
+                catch { }
             }
-            catch { }
+            else MessageBox.Show("Необходимо указать параметры для генерации псевдослучайной последовательности в настройках программы");
         }
     }
 }

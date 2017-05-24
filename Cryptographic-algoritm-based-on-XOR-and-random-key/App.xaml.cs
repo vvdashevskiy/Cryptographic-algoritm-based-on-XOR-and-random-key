@@ -17,7 +17,9 @@ namespace Cryptographic_algoritm_based_on_XOR_and_random_key
         public List<string> Text = new List<string>();
         public List<string> EncryptedText = new List<string>();
 
-        public Settings S = new Settings();
+        public FormSettings S = new FormSettings();
         public Logger log = LogManager.GetCurrentClassLogger();
+
+        public string CurrentUser = null;
     }
 }

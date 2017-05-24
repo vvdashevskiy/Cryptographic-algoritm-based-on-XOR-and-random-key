@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,9 +21,50 @@ namespace Cryptographic_algoritm_based_on_XOR_and_random_key
     /// </summary>
     public partial class LoginPage : Page
     {
+        Methods M = new Methods();
+
         public LoginPage()
         {
             InitializeComponent();
+        }
+
+        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        {
+            string Hash;
+
+            using (SQLiteConnection Base = new SQLiteConnection("Data source=Users.db"))
+            {
+                Base.Open();
+
+                Hash = M.FindUser(Base, LoginBox.Text);
+
+                if (Hash != null)
+                {
+                    if (Hash == M.PasswordHash(PasswordBox.Password))
+                    {
+                        ((App)Application.Current).CurrentUser = LoginBox.Text;
+
+                        try
+                        {
+                            ((App)Application.Current).S = M.DeSerialise(((App)Application.Current).CurrentUser); // Загрузка файла настроек
+
+                            ((App)Application.Current).log.Trace("Загружены настройки");
+                        }
+                        catch { ((App)Application.Current).log.Trace("Файл настроек не найден и будет создан в дальнейшем"); }
+
+                        Base.Close();
+
+                        NavigationService.Navigate(Pages.MainPage);
+                    }
+                    else { MessageBox.Show("Введён неверный пароль"); PasswordBox.Clear(); }
+                }
+                else { MessageBox.Show("Пользователь не существует"); LoginBox.Clear(); PasswordBox.Clear(); }
+            }
+        }
+
+        private void RegisterButton_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(Pages.RegisterPage);
         }
     }
 }
