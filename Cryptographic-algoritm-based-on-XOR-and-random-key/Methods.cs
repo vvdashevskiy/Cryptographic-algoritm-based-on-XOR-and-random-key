@@ -60,7 +60,7 @@ namespace Cryptographic_algoritm_based_on_XOR_and_random_key
 
             CurrentUser = "Settings\\Settings_" + CurrentUser + ".xml";
 
-            using (var fs = new FileStream(CurrentUser = "Settings_" + CurrentUser + ".xml", FileMode.Open))
+            using (var fs = new FileStream(CurrentUser, FileMode.Open))
             {
                 XmlSerializer xml = new XmlSerializer(typeof(FormSettings));
                 return S = (FormSettings)xml.Deserialize(fs);

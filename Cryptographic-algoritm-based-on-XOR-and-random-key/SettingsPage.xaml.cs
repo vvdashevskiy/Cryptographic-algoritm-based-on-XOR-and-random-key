@@ -26,12 +26,15 @@ namespace Cryptographic_algoritm_based_on_XOR_and_random_key
         public SettingsPage()
         {
             InitializeComponent();
+        }
 
+        public void Refresh()
+        {
             if (((App)Application.Current).S.A != 0 & ((App)Application.Current).S.B != 0 & ((App)Application.Current).S.N != 0)
             {
-                a.Text = ((App)Application.Current).S.A.ToString();
-                b.Text = ((App)Application.Current).S.B.ToString();
-                n.Text = ((App)Application.Current).S.N.ToString();
+                a.AppendText(((App)Application.Current).S.A.ToString());
+                b.AppendText(((App)Application.Current).S.B.ToString());
+                n.AppendText(((App)Application.Current).S.N.ToString());
             }
         }
 

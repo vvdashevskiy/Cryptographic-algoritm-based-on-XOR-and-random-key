@@ -38,6 +38,8 @@ namespace Cryptographic_algoritm_based_on_XOR_and_random_key
                 {
                     if (M.PasswordHash(PasswordBox.Password) == M.PasswordHash(PasswordBox_Double.Password))
                     {
+                        ((App)Application.Current).log.Trace("Пользователь успешно зарегистрирован");
+
                         M.NewUser(Base, LoginBox.Text, M.PasswordHash(PasswordBox.Password));
 
                         NavigationService.Navigate(Pages.LoginPage);

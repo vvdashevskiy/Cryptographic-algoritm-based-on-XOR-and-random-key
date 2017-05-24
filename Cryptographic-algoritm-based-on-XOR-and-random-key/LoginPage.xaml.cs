@@ -42,11 +42,15 @@ namespace Cryptographic_algoritm_based_on_XOR_and_random_key
                 {
                     if (Hash == M.PasswordHash(PasswordBox.Password))
                     {
+                        ((App)Application.Current).log.Trace("Пользователь успешно вошёл в систему");
+
                         ((App)Application.Current).CurrentUser = LoginBox.Text;
 
                         try
                         {
                             ((App)Application.Current).S = M.DeSerialise(((App)Application.Current).CurrentUser); // Загрузка файла настроек
+
+                            Pages.SettingsPage.Refresh();
 
                             ((App)Application.Current).log.Trace("Загружены настройки");
                         }
