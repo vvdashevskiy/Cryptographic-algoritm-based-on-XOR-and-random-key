@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Cryptographic_algoritm_based_on_XOR_and_random_key"
         xmlns:p="clr-namespace:Cryptographic_algoritm_based_on_XOR_and_random_key.Properties"
         mc:Ignorable="d"
-        Title="Enigma" FontFamily="./#b52" FontSize="20" MinHeight="300" MinWidth="500" Height="500" Width="700" MaxHeight="700" MaxWidth="1050" Icon="Resources/Icon.png">
+        Title="Enigma" FontFamily="Resources/#Bender" FontSize="20" MinHeight="300" MinWidth="500" Height="500" Width="700" MaxHeight="700" MaxWidth="1050" Icon="Resources/Icon.png">
 
     <Grid>
         <Grid.Background>
