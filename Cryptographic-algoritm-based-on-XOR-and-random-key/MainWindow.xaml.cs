@@ -51,7 +51,19 @@ namespace Cryptographic_algoritm_based_on_XOR_and_random_key
             if (((App)Application.Current).CurrentUser == null)
                 MessageBox.Show("Необходимо войти в систему");
             else
-                frameMain.Navigate(Pages.SettingsPage);
+            { Application.Current.MainWindow.Height = 300; Application.Current.MainWindow.Width = 200;  frameMain.Navigate(Pages.SettingsPage); }
+        }
+
+        private void MenuExit_Click(object sender, RoutedEventArgs e)
+        {
+            if (((App)Application.Current).CurrentUser == null)
+                MessageBox.Show("Необходимо войти в систему");
+            else
+            {
+                ((App)Application.Current).CurrentUser = null;
+
+                frameMain.Navigate(Pages.LoginPage);
+            }
         }
 
         /*protected override void OnClosing(CancelEventArgs e)

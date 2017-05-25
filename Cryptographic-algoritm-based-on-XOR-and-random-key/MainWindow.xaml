@@ -6,16 +6,22 @@
         xmlns:local="clr-namespace:Cryptographic_algoritm_based_on_XOR_and_random_key"
         xmlns:p="clr-namespace:Cryptographic_algoritm_based_on_XOR_and_random_key.Properties"
         mc:Ignorable="d"
-        Title="Шифратор" FontSize="14" Height="400" Width="600">
-        
-    <Grid>
-        <Frame Name="frameMain" NavigationUIVisibility="Hidden"></Frame>
-        
-        <Menu x:Name="Menu" Height="20" VerticalAlignment="Top">
-            <MenuItem Header="Файл">
-                <MenuItem Header="Настройки" HorizontalAlignment="Left" Width="150" Click="MenuSettings_Click"/>
-            </MenuItem>
-        </Menu>
+        Title="Enigma" FontFamily="./#b52" FontSize="20" MinHeight="300" MinWidth="500" Height="500" Width="700" MaxHeight="700" MaxWidth="1050" Icon="Resources/Icon.png">
 
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="Resources/Background.png" Stretch="UniformToFill"/>
+        </Grid.Background>
+
+        <Frame Name="frameMain" NavigationUIVisibility="Hidden"></Frame>
+
+        <Menu x:Name="Menu" Height="30" VerticalAlignment="Top" FlowDirection="RightToLeft">
+            <Button x:Name="ExitButton" Click="MenuExit_Click" Width="25" Height="25" ToolTip="Смена пользователя">
+                <Image Source="Resources/Exit.png"/>
+            </Button>
+            <Button x:Name="SettingsButton" Click="MenuSettings_Click" Width="25" Height="25" ToolTip="Настройки">
+                <Image Source="Resources/Settings.png" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+            </Button>
+        </Menu>
     </Grid>
 </Window>

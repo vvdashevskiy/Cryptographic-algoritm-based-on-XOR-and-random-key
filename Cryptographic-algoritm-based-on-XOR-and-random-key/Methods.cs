@@ -9,6 +9,7 @@ using System.Windows;
 using System.Xml.Serialization;
 using System.Data.SQLite;
 using System.Security.Cryptography;
+using System.Diagnostics;
 
 namespace Cryptographic_algoritm_based_on_XOR_and_random_key
 {
@@ -122,6 +123,24 @@ namespace Cryptographic_algoritm_based_on_XOR_and_random_key
                 return openFileDialog.FileName;
             }
             else return null;
+        }
+
+        public void OpenReadMe()
+        {
+            Process p = new Process();
+            ProcessStartInfo pi = new ProcessStartInfo();
+            pi.UseShellExecute = true;
+            pi.FileName = @"Руководство пользователя.txt";
+            p.StartInfo = pi;
+
+            try
+            {
+                p.Start();
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show(Ex.Message);
+            }
         }
     }
 }

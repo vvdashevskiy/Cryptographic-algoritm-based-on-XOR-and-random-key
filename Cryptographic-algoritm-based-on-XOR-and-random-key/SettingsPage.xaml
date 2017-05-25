@@ -8,13 +8,14 @@
       d:DesignHeight="400" d:DesignWidth="500"
       Title="SettingsPage">
 
-    <Grid>
-        <Button x:Name="Exit" Content="Сохранить и выйти" Margin="0,0,10,10" Height="22" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="140" Click="Exit_Click"/>
-        <TextBox x:Name="b" Height="24" Margin="180,27,0,0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left" Width="40" Panel.ZIndex="5"/>
-        <TextBox x:Name="a" Height="24" Margin="70,27,0,0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left" Width="40" Panel.ZIndex="5"/>
-        <TextBox x:Name="n" Height="24" Margin="124,58,0,0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left" Width="40" Panel.ZIndex="5"/>
-        <Label x:Name="Formula" Content="Y(n) = ((                  * Y(n-1)) +                  ) mod 2" Margin="10,25,0,0" VerticalAlignment="Top" 
+    <Grid Margin="0,20,0,0">
+        <Button x:Name="Exit" Content="Сохранить и выйти" Margin="0,0,10,10" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="140" Click="Exit_Click"/>
+        <TextBox x:Name="b" Height="24" Margin="180,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left" Width="40" Panel.ZIndex="5"/>
+        <TextBox x:Name="a" Height="24" Margin="70,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left" Width="40" Panel.ZIndex="5"/>
+        <TextBox x:Name="n" Height="24" Margin="125,120,0,0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left" Width="40" Panel.ZIndex="5"/>
+        <Label x:Name="Formula" Foreground="White" Content="Y(n) = ((                  * Y(n-1)) +                  ) mod 2" Margin="10,80,0,0" VerticalAlignment="Top" 
                Panel.ZIndex="1" HorizontalAlignment="Left" Width="285"/>
-        <Label x:Name="Start" Content="Начальное число:" HorizontalAlignment="Left" Margin="10,56,0,0" VerticalAlignment="Top" Panel.ZIndex="1"/>
+        <Label x:Name="Start" Foreground="White" Content="Начальное число:" HorizontalAlignment="Left" Margin="10,120,0,0" VerticalAlignment="Top" Panel.ZIndex="1"/>
+        <Label x:Name="KeyInfo" Foreground="White" Content="Параметры генератора ключа:" Margin="10,50,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="179"/>
     </Grid>
 </Page>

@@ -44,9 +44,9 @@ namespace Cryptographic_algoritm_based_on_XOR_and_random_key
 
                         NavigationService.Navigate(Pages.LoginPage);
                     }
-                    else { PasswordBox.Clear();  PasswordBox_Double.Clear(); MessageBox.Show("Вы ввели несовпадающие пароли"); }
+                    else { PasswordBox.Clear(); PasswordBox_Double.Clear(); MessageBox.Show("Вы ввели несовпадающие пароли"); }
                 }
-                else MessageBox.Show("Имя пользователя занято");
+                else { LoginBox.Clear(); MessageBox.Show("Имя пользователя занято"); }
             }
         }
     }

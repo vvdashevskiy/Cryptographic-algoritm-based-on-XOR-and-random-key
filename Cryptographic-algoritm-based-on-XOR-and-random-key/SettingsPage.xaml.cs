@@ -51,6 +51,8 @@ namespace Cryptographic_algoritm_based_on_XOR_and_random_key
                 ((App)Application.Current).log.Trace("Файл настроек обновлён");
 
                 NavigationService.Navigate(Pages.MainPage);
+
+                Application.Current.MainWindow.Height = 500; Application.Current.MainWindow.Width = 700;
             }
             catch { MessageBox.Show("Пожалуйста, вводите натуральные цисла"); }
         }

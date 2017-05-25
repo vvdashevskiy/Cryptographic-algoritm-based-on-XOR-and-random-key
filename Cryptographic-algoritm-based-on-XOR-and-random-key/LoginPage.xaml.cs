@@ -54,15 +54,15 @@ namespace Cryptographic_algoritm_based_on_XOR_and_random_key
 
                             ((App)Application.Current).log.Trace("Загружены настройки");
                         }
-                        catch { ((App)Application.Current).log.Trace("Файл настроек не найден и будет создан в дальнейшем"); }
+                        catch { ((App)Application.Current).log.Trace("Файл настроек не найден и будет создан в дальнейшем"); M.OpenReadMe(); }
 
                         Base.Close();
 
                         NavigationService.Navigate(Pages.MainPage);
                     }
-                    else { MessageBox.Show("Введён неверный пароль"); PasswordBox.Clear(); }
+                    else { PasswordBox.Clear(); MessageBox.Show("Введён неверный пароль"); }
                 }
-                else { MessageBox.Show("Пользователь не существует"); LoginBox.Clear(); PasswordBox.Clear(); }
+                else { LoginBox.Clear(); PasswordBox.Clear(); MessageBox.Show("Пользователь не существует"); }
             }
         }
 

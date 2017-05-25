@@ -5,15 +5,24 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Cryptographic_algoritm_based_on_XOR_and_random_key"
       mc:Ignorable="d" 
-      d:DesignHeight="400" d:DesignWidth="600"
+      d:DesignHeight="400" d:DesignWidth="600" FontSize="16"
       Title="RegisterPage">
 
-    <Grid>
-        <PasswordBox x:Name="PasswordBox" Margin="150,140,150,0" VerticalAlignment="Top"/>
-        <PasswordBox x:Name="PasswordBox_Double" Margin="150,180,150,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="LoginBox" Margin="150,80,150,0" TextWrapping="Wrap" Height="23" VerticalAlignment="Top"/>
-        <Button x:Name="RegisterButton" Content="Зарегистрировать" Margin="150,225,150,0" Click="RegisterButton_Click" Height="75" VerticalAlignment="Top"/>
-        <Label x:Name="LoginLabel" Content="Введите ваш логин:" Margin="150,49,150,0" VerticalAlignment="Top"/>
-        <Label x:Name="PasswordLabel" Content="Дважды введите ваш пароль:" Margin="150,109,150,0" VerticalAlignment="Top"/>
+    <Grid Margin="0, 30, 0, 0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="0.75*"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="0.75*"></RowDefinition>
+            <RowDefinition Height="0.75*"></RowDefinition>
+            <RowDefinition Height="1.5*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="0" Content="Введите ваш логин:" Margin="5,5,5,5" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" Foreground="White"/>
+        <TextBox Grid.Row="1" x:Name="LoginBox" Margin="150, 15" TextWrapping="Wrap" MaxHeight="40" MaxWidth="300" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Label Grid.Row="2" Content="Дважды введите ваш пароль:" Margin="5,5,5,5" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" Foreground="White"/>
+        <PasswordBox Grid.Row="3" x:Name="PasswordBox" Margin="150, 15" MaxHeight="40" MaxWidth="300" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <PasswordBox Grid.Row="4" x:Name="PasswordBox_Double" Margin="150, 15" MaxHeight="40" MaxWidth="300" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Button Grid.Row="5" x:Name="RegisterButton" Content="Зарегистрировать" Margin="130, 10, 130, 60" Click="RegisterButton_Click" MaxHeight="50" MaxWidth="400"/>
     </Grid>
 </Page>

@@ -164,5 +164,33 @@ namespace Cryptographic_algoritm_based_on_XOR_and_random_key
             }
             else MessageBox.Show("Необходимо указать параметры для генерации псевдослучайной последовательности в настройках программы");
         }
+
+        private void Locked_Enter(object sender, MouseEventArgs e)
+        {
+            Encrypt.Content = "Выберите текстовый файл для зашифровки";
+        }
+
+        private void Locked_Leave(object sender, MouseEventArgs e)
+        {
+            Encrypt.Content = new Image
+            {
+                Source = new BitmapImage(new Uri(@"Resources\Encryption.png", UriKind.Relative)),
+                Stretch=Stretch.UniformToFill
+            };
+        }
+
+        private void Unlocked_Enter(object sender, MouseEventArgs e)
+        {
+            Decrypt.Content = "Выберите текстовый файл для дешифровки";
+        }
+
+        private void Unlocked_Leave(object sender, MouseEventArgs e)
+        {
+            Decrypt.Content = new Image
+            {
+                Source = new BitmapImage(new Uri(@"Resources\Decryption.png", UriKind.Relative)),
+                Stretch = Stretch.UniformToFill
+            };
+        }
     }
 }

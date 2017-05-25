@@ -5,15 +5,20 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Cryptographic_algoritm_based_on_XOR_and_random_key"
       mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="500"
+      d:DesignHeight="300" d:DesignWidth="500" FontSize="20"
       Title="MainPage">
 
-    <Grid>
-        <Button x:Name="Locked" Margin="0,0,125,0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="100" Height="100" Click="Locked_Click">
-            <Image Source="Resources/Locked.png"></Image>
+    <Grid Margin="0,30,0,0">
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Button x:Name="Encrypt" Grid.Row="0" Click="Locked_Click" Margin="5,5,5,5" MouseEnter="Locked_Enter" MouseLeave="Locked_Leave">
+            <Image Source="Resources/Encryption.png" Stretch="UniformToFill"></Image>
         </Button>
-        <Button x:Name="Unlocked"  Margin="125,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="100" Height="100" Click="Unlocked_Click">
-            <Image Source="Resources/Unlocked.png"></Image>
+        <Button x:Name="Decrypt" Grid.Row="1" Click="Unlocked_Click" Margin="5,5,5,5" MouseEnter="Unlocked_Enter" MouseLeave="Unlocked_Leave">
+            <Image Source="Resources/Decryption.png" Stretch="UniformToFill"></Image>
         </Button>
     </Grid>
 </Page>
