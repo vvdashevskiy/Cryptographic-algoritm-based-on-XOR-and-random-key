@@ -54,7 +54,14 @@ namespace Cryptographic_algoritm_based_on_XOR_and_random_key
 
                             ((App)Application.Current).log.Trace("Загружены настройки");
                         }
-                        catch { ((App)Application.Current).log.Trace("Файл настроек не найден и будет создан в дальнейшем"); M.OpenReadMe(); }
+                        catch
+                        { ((App)Application.Current).log.Trace("Файл настроек не найден и будет создан в дальнейшем");
+                            try
+                            {
+                                M.OpenReadMe();
+                            }
+                            catch { MessageBox.Show("Кажется, кто-то удалил руководство пользователя"); }
+                        }
 
                         Base.Close();
 

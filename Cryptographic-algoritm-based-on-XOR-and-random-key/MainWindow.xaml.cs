@@ -56,26 +56,9 @@ namespace Cryptographic_algoritm_based_on_XOR_and_random_key
 
         private void MenuExit_Click(object sender, RoutedEventArgs e)
         {
-            if (((App)Application.Current).CurrentUser == null)
-                MessageBox.Show("Необходимо войти в систему");
-            else
-            {
-                ((App)Application.Current).CurrentUser = null;
+            ((App)Application.Current).CurrentUser = null;
 
-                frameMain.Navigate(Pages.LoginPage);
-            }
+            frameMain.Navigate(Pages.LoginPage);
         }
-
-        /*protected override void OnClosing(CancelEventArgs e)
-        {
-            Settings.Default.Save();
-            base.OnClosing(e);
-        }*/
-
-        /*
-        Height="{Binding Source={x:Static p:Settings.Default}, Path=Height, Mode=TwoWay}"
-        Width="{Binding Source={x:Static p:Settings.Default}, Path=Width, Mode=TwoWay}"
-        Left="{Binding Source={x:Static p:Settings.Default}, Path=Left, Mode=TwoWay}"
-        Top="{Binding Source={x:Static p:Settings.Default}, Path=Top, Mode=TwoWay}"*/
     }
 }

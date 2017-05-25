@@ -54,7 +54,7 @@ namespace Cryptographic_algoritm_based_on_XOR_and_random_key
 
                 Application.Current.MainWindow.Height = 500; Application.Current.MainWindow.Width = 700;
             }
-            catch { MessageBox.Show("Пожалуйста, вводите натуральные цисла"); }
+            catch { a.Clear(); b.Clear(); n.Clear(); MessageBox.Show("Пожалуйста, вводите натуральные цисла"); }
         }
     }
 }

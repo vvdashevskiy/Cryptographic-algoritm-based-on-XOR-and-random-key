@@ -130,7 +130,7 @@ namespace Cryptographic_algoritm_based_on_XOR_and_random_key
             Process p = new Process();
             ProcessStartInfo pi = new ProcessStartInfo();
             pi.UseShellExecute = true;
-            pi.FileName = @"Руководство пользователя.txt";
+            pi.FileName = @"Руководство пользователя.pdf";
             p.StartInfo = pi;
 
             try

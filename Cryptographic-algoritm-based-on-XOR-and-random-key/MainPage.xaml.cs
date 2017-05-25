@@ -159,6 +159,12 @@ namespace Cryptographic_algoritm_based_on_XOR_and_random_key
                     }
 
                 ((App)Application.Current).log.Trace("Файл успешно декодирован");
+
+                    ((App)Application.Current).S.A = 0;
+                    ((App)Application.Current).S.B = 0;
+                    ((App)Application.Current).S.N = 0;
+
+                    M.Serialise(((App)Application.Current).S, ((App)Application.Current).CurrentUser);
                 }
                 catch { }
             }
@@ -175,7 +181,7 @@ namespace Cryptographic_algoritm_based_on_XOR_and_random_key
             Encrypt.Content = new Image
             {
                 Source = new BitmapImage(new Uri(@"Resources\Encryption.png", UriKind.Relative)),
-                Stretch=Stretch.UniformToFill
+                Stretch = Stretch.UniformToFill
             };
         }
 
